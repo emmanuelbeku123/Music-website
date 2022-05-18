@@ -22,9 +22,28 @@
             <div class="right">
                 <p>Click To Play</p>
                 <img src="images/play.png" id="icon">
+            
+                
             </div>
+        
         </div>
     </div>
+    <section>
+        <div class="container">
+            
+            <span id="hours">00</span>
+            <span>:</span>
+            <span id="minutes">00</span>
+            <span>:</span>
+            <span id="seconds">00</span>
+            <span id="session">AM</span><br>
+            
+                <h4>Tuesday, May 17, 2022 <br>
+                    Time in Seattle, WA</h4> 
+        
+            
+           </div> 
+    </section>
 
     <audio id="mysong">
         <source src="images/dd7c4fc1-53af-4911-afc9-bfb373918650.mp3" type="audio/mp3">
@@ -43,7 +62,23 @@
                 icon.src = "images/play.png";
             }
         }
+        function displayTime(){
+    var dateTime = new Date();
+    var hrs = dateTime.getHours();
+    var min = dateTime.getMinutes();
+    var sec = dateTime.getSeconds();
+    var session = document.getElementById('session');
+  if(hrs >=12){
+      session.innerHTML = 'PM';
+  }else{
+      session.innerHTML = 'AM'
+  }
+    document.getElementById('hours').innerHTML = hrs;
+    document.getElementById('minutes').innerHTML = min;
+    document.getElementById('seconds').innerHTML = sec;
 
+}
+setInterval(displayTime, 10);
     </script>
 
 </body>
